@@ -1,0 +1,11 @@
+{
+  "name": "kds16",
+  "version": "1.0.0",
+  "description": "Web app for the Knowit Developer Summit 2016",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Max Witt",
+  "license": "MIT"
+}
