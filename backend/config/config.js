@@ -4,7 +4,7 @@ module.exports = {
   db: process.env.MONGOHQ_URL
 			|| process.env.MONGOLAB_URI
 			|| 'mongodb://' + (process.env.DB_1_PORT_27017_TCP_ADDR
-			|| 'localhost') + '/kds16',
+			|| 'localhost') + '/knowitdevsummit',
 
   sessionCookie: {
     // session expiration is set by default to 24 hours
@@ -18,7 +18,12 @@ module.exports = {
     secure: false
   },
 
-  sessionSecret: process.env.SESSION_SECRET || 'kds16',
+  mail: {
+    token: process.env.POSTMARK_API_KEY,
+    sender: process.env.EMAIL_SENDER
+  },
+
+  sessionSecret: process.env.SESSION_SECRET || 'knowitdevsummit',
   // sessionKey is set to the generic sessionId key used by PHP applications
   // for obsecurity reasons
   sessionKey: 'sessionId',

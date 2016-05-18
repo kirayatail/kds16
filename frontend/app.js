@@ -1,13 +1,13 @@
 'use strict';
 
-var app = angular.module('kds16', [
+var app = angular.module('knowitdevsummit', [
   'ngRoute'
 ]);
 
 app.config(['$routeProvider', function($routeProvider) {
    $routeProvider.
    when('/', {
-      templateUrl: 'partials/start.html',
+      templateUrl: 'start/start.html',
       controller: 'StartController'
    }).
   //  when('/confirm/:token', {

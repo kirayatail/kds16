@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
 <head>
-    <title>Canvastavla | Because Horv is awesome!</title>
+    <title>Knowit Developer Summit 2016</title>
 
     <meta name="viewport" content="user-scalable=1.0,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0">
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -10,9 +10,22 @@
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular-route.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/3.10.1/lodash.min.js"></script>
+
+    <!-- App -->
+    <script type="text/javascript" src="app.js"></script>
+
+    <!-- Services -->
+    <script type="text/javascript" src="services/auth.js"></script>
+
+    <!-- Directives -->
+    <script type="text/javascript" src="navbar/navbar.js"></script>
+
+    <!-- Controllers -->
+    <script type="text/javascript" src="start/start.js"></script>
+
 </head>
-<body ng-app="kds16">
+<body ng-app="knowitdevsummit">
+  <nav-bar></nav-bar>
   <div ng-view></div>
-  <h1>Hello World!</h1>
 </body>
 </html>

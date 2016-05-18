@@ -1,0 +1,21 @@
+.navbar {
+  position: fixed;
+  top:0;
+  left: 0;
+
+  ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    list-style-type: none;
+
+    li {
+      padding: .5em 1em;
+
+      &:hover {
+        background-color: #ddd;
+      }
+    }
+  }
+}

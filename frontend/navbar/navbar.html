@@ -1,0 +1,11 @@
+<div class="navbar">
+  <ul>
+    <li>Program</li>
+    <li>Speakers</li>
+    <li>Call for presentations</li>
+    <li>Proposals</li>
+    <li ng-if="isSignedIn"><a href="/me">My details</a></li>
+    <li ng-if="!isSignedIn"><input type="text" placeholder="email" ng-model="data.email" /></li>
+    <li ng-if="!isSignedIn"><a ng-click="signIn();">Sign in</a></li>
+  </ul>
+</div>

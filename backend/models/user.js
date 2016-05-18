@@ -22,7 +22,9 @@ var UserSchema = new Schema({
   },
   signinTokenExpire: {
     type: Date
-  }
+  },
+  verified: Boolean,
+  admin: {type: Boolean, default: false}
 });
 
 module.exports = mongoose.model('Users', UserSchema);

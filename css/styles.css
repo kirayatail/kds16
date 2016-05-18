@@ -1,0 +1,15 @@
+@charset "UTF-8";
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0; }
+  .navbar ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    list-style-type: none; }
+    .navbar ul li  {
+      padding: .5em 1em; }
+      .navbar ul li :hover {
+        background-color: #ddd; }
