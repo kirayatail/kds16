@@ -90,7 +90,7 @@ module.exports = _.assignIn(
     RequestEmail: requestEmail,
     SigninEmail: signinEmail,
     Signout: signout,
-    Me: getMe
+    Me: getMe,
     Authorize: authorize
   },
   {} // no oauth yet
