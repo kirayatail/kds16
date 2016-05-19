@@ -12,7 +12,13 @@ app.directive('navBar', ['authService', function(Auth) {
         console.log("email:", scope.data.email);
         Auth.signinEmail(scope.data.email);
       }
-      scope.isSignedIn = Auth.isSignedIn();
+      scope.isSignedIn = false;
+
+      Auth.getUser().then(function(res) {
+        scope.isSignedIn = res.data._id ? true : false;
+      }, function(err) {
+        scope.isSignedIn = false;
+      });
     }
   }
 }]);

@@ -13,10 +13,15 @@ module.exports = {
     Users.create(userData, function(user) {
       return authCtrl.RequestEmail(req, res);
     });
-  }
+  },
 
   List: function(req, res) {
-    Users.find({}, function(err, users) {
+    var projection =  {
+      signinToken: false,
+      signinTokenExpire: false
+    };
+
+    Users.find({}, projection, function(err, users) {
       return res.json(users);
     })
   }

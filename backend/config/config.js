@@ -2,7 +2,7 @@
 
 module.exports = {
   db: process.env.MONGOHQ_URL
-			|| process.env.MONGOLAB_URI
+			|| process.env.MONGOLAB_URI || process.env.MONGODB_URI
 			|| 'mongodb://' + (process.env.DB_1_PORT_27017_TCP_ADDR
 			|| 'localhost') + '/knowitdevsummit',
 
@@ -20,8 +20,10 @@ module.exports = {
 
   mail: {
     token: process.env.POSTMARK_API_KEY,
-    sender: process.env.EMAIL_SENDER
+    sender: process.env.EMAIL_SENDER || "noreply@example.com"
   },
+
+  url: process.env.URL || "http://localhost:"+(process.env.PORT || 3000),
 
   sessionSecret: process.env.SESSION_SECRET || 'knowitdevsummit',
   // sessionKey is set to the generic sessionId key used by PHP applications
