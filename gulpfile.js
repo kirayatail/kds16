@@ -9,7 +9,7 @@ gulp.task('sass', function () {
   return gulp.src('./frontend/**/*.scss')
     .pipe(sass().on('error', sass.logError))
     .pipe(concat('styles.css'))
-    .pipe(gulp.dest('./css'));
+    .pipe(gulp.dest('./frontend/css'));
 });
 
 gulp.task('sass:watch', function () {
