@@ -5,6 +5,7 @@ app.directive('createProposal', ['$http', function($http){
     templateUrl:'createproposal/createproposal.html',
     link: function(scope) {
       scope.showForm = false;
+      scope.wait = false;
 
       scope.tinymceOptions = {
         plugins: 'link image code',
@@ -17,6 +18,7 @@ app.directive('createProposal', ['$http', function($http){
       };
 
       scope.submit = function() {
+        scope.wait = true;
         $http.post('/api/talks', scope.proposal).then(function(res) {
           swal({
             type: "success",
@@ -28,7 +30,7 @@ app.directive('createProposal', ['$http', function($http){
             duration: "10",
             language: "eng"
           };
-
+          scope.wait = false;
         }, function(err) {
           errText = "Something went wrong, Check the input fields and try again.\n If the problem persists please contact the administrator.";
           if(err.code === 401 || err.code === 403) {
@@ -39,6 +41,7 @@ app.directive('createProposal', ['$http', function($http){
             title:"Not submitted!",
             text:errText
           });
+          scope.wait = false;
         });
       }
     }

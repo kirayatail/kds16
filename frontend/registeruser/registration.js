@@ -5,6 +5,7 @@ app.directive('registeruser', ['$http', function($http) {
   return {
     templateUrl: 'registeruser/registeruser.html',
     link: function(scope) {
+      scope.wait = false;
       scope.form = [
         {
           label: "First name",
@@ -60,6 +61,7 @@ app.directive('registeruser', ['$http', function($http) {
       scope.user = {};
 
       scope.submit = function() {
+        scope.wait = true;
         scope.user.roles = _.filter(
           _.map(scope.roles,
             function(v,k) {
@@ -91,12 +93,14 @@ app.directive('registeruser', ['$http', function($http) {
               "Designer": false,
               "Other": false
             };
+            scope.wait = false;
         }, function(err) {
           swal({
             type:"error",
             title:"Not registered!",
             text:"Something went wrong, Check the input fields and try again.\n If the problem persists please contact the administrator."
           });
+          scope.wait = false;
         });
       }
     }

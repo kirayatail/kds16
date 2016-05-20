@@ -32,7 +32,7 @@
     <textarea ui-tinymce="tinymceOptions" ng-model="proposal.abstract"></textarea>
 
     <div class="text-center">
-      <button ng-click="submit()">Submit</button>
+      <button class="submit-button" ng-click="submit()" ng-disabled="wait">Submit<span ng-if="wait">ting...</span></button>
     </div>
   </form>
 </div>
