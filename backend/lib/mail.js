@@ -22,8 +22,14 @@ var send = function(to, subject, content) {
 
 
 var sendSigninMail = function(user) {
+  console.log("Sending signin email to", user);
   var message = `Logga in på Knowit Developer Summit 2016 genom att klicka på länken:
   <br /><br /><a href="${config.url}/api/auth/email/signin/${user.signinToken}">${config.url}</a>`;
 
   return send(user.email, "Logga in - Knowit Developer Summit 2016", message);
 }
+
+
+module.exports = {
+  sendSigninMail
+};

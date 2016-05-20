@@ -26,7 +26,7 @@ var requestEmail = function(req, res) {
         const signinUrl = req.protocol + '://' + req.hostname + ':3000/api/auth/email/signin/' + user.signinToken;
         user.save((err) => {
           if (!err) {
-            mail.sendSigninMail(user.email, signinUrl);
+            mail.sendSigninMail(user);
             return res.status(200).json({message:'signin request created', exists: true});
           }
         });
@@ -43,7 +43,9 @@ var getMe = function(req, res) {
     return res.status(401).send("Not authenticated");
   }
   if(req.user) {
-
+    delete req.user.signinToken;
+    delete req.user.signinTokenExpire;
+    
     return res.json(req.user);
   }
   return res.status(404).send();

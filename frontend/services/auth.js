@@ -5,18 +5,7 @@ app.service('authService', ['$http', '$q', function($http, $q) {
 
   return {
     getUser: function() {
-      $http.get('/api/auth/me').then(
-        function(response) {
-          return user = response.data;
-        },
-        function(err) {
-          return user = null;
-        }
-      );
-
-      if(user) {
-        return user;
-      }
+      return $http.get('/api/auth/me');
     },
     isSignedIn: function() {
       return true && this.getUser(); // Cast user to boolean

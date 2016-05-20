@@ -20,8 +20,10 @@ module.exports = {
 
   mail: {
     token: process.env.POSTMARK_API_KEY,
-    sender: process.env.EMAIL_SENDER
+    sender: process.env.EMAIL_SENDER || "noreply@example.com"
   },
+
+  url: process.env.URL || "http://localhost:"+(process.env.PORT || 3000),
 
   sessionSecret: process.env.SESSION_SECRET || 'knowitdevsummit',
   // sessionKey is set to the generic sessionId key used by PHP applications
