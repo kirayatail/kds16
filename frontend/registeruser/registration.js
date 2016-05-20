@@ -58,6 +58,47 @@ app.directive('registeruser', ['$http', function($http) {
       ];
 
       scope.user = {};
+
+      scope.submit = function() {
+        scope.user.roles = _.filter(
+          _.map(scope.roles,
+            function(v,k) {
+              if(v) return k;
+            }),
+          function(o) {
+            return o !== undefined;
+          });
+        console.log("Submitting user:", scope.user);
+        $http.post('/api/users', scope.user).then(function(res) {
+          swal({
+            type: "success",
+            title: "Registered",
+            text: "Successfully registered with email address "+scope.user.email
+          });
+          scope.user = {};
+          scope.roles =
+            {
+              "Developer": false,
+              "Tester/test lead": false,
+              "Project manager": false,
+              "Architect": false,
+              "UX specialist": false,
+              "Security professional": false,
+              "Product developer": false,
+              "Manager": false,
+              "Scrum master": false,
+              "Agile coach": false,
+              "Designer": false,
+              "Other": false
+            };
+        }, function(err) {
+          swal({
+            type:"error",
+            title:"Not registered!",
+            text:"Something went wrong, Check the input fields and try again.\n If the problem persists please contact the administrator."
+          });
+        });
+      }
     }
   }
 }]);
