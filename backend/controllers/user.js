@@ -10,7 +10,12 @@ module.exports = {
     delete userData.signinToken;
     delete userData.signinTokenExpire;
 
-    Users.create(userData, function(user) {
+    Users.create(userData, function(err, user) {
+      if(err) {
+        console.log(err);
+        return res.status(400).json({message: err.message});
+      }
+
       return authCtrl.RequestEmail(req, res);
     });
   },

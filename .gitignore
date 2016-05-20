@@ -2,3 +2,4 @@ node_modules/
 .env
 frontend/css/
 npm-debug.log
+frontend/lib/
