@@ -45,7 +45,7 @@ var getMe = function(req, res) {
   if(req.user) {
     delete req.user.signinToken;
     delete req.user.signinTokenExpire;
-    
+
     return res.json(req.user);
   }
   return res.status(404).send();
@@ -73,13 +73,13 @@ var signout = function(req, res) {
 }
 
 var authorize = function(options) {
-  return function(req, res) {
+  return function(req, res, next) {
 
     if(!req.user) {
       return res.status(401).json({message: "Please log in"});
     }
 
-    if(options.admin && !req.user.admin) {
+    if(options && options.admin && !req.user.admin) {
       return res.status(403).json({message: "Restricted to admin"});
     }
 

@@ -1,7 +1,8 @@
 'use strict';
 
 var app = angular.module('knowitdevsummit', [
-  'ngRoute'
+  'ngRoute',
+  'ui.tinymce'
 ]);
 
 app.config(['$routeProvider', function($routeProvider) {

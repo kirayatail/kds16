@@ -7,10 +7,13 @@ var sourcemaps = require('gulp-sourcemaps');
 var merge = require('merge-stream');
 
 gulp.task('deps', function() {
-  var sweetalert = gulp.src('./node_modules/sweetalert/dist/*.*')
+  var sweetalert = gulp.src('./node_modules/sweetalert/dist/**')
     .pipe(gulp.dest('./frontend/lib/sweetalert'));
 
-  return merge(sweetalert);
+  var tinymce = gulp.src('./node_modules/angular-ui-tinymce/dist/**')
+    .pipe(gulp.dest('./frontend/lib/tinymce'));
+
+  return merge(sweetalert, tinymce);
 });
 
 gulp.task('sass', function () {

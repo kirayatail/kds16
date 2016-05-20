@@ -5,10 +5,19 @@ app.service('authService', ['$http', '$q', function($http, $q) {
 
   return {
     getUser: function() {
-      return $http.get('/api/auth/me');
-    },
-    isSignedIn: function() {
-      return true && this.getUser(); // Cast user to boolean
+      var def = $q.defer();
+
+      if(user){
+        def.resolve(user);
+      }
+      $http.get('/api/auth/me').then(function(r) {
+        user = r.data;
+        def.resolve(user);
+      }, function(err) {
+        def.reject(err);
+      });
+
+      return def.promise;
     },
     signinEmail: function(email) {
       return $http.post('/api/auth/email/request', {"email": email });

@@ -1,0 +1,38 @@
+<div ng-if="!showForm">
+  <button ng-click="$parent.showForm = true">Submit a talk...</button>
+</div>
+
+<div class="createproposal" ng-if="showForm">
+  <h2>Submit a talk</h2>
+  <form>
+    <label>Talk length
+      <select ng-model="proposal.duration">
+        <option value="10" selected="true">10 min - Lightning talk</option>
+        <option value="30">30 min - Short talk</option>
+      </select>
+    </label>
+    <label>Language
+      <select ng-model="proposal.language">
+        <option value="eng" selected="true">English</option>
+        <option value="swe">Swedish</option>
+        <option value="nor">Norwegian</option>
+      </select>
+    </label>
+    <h3>Talk details</h3>
+    <p>The abstract will be published on the website as soon as you submit it,
+      and will be used by the organizers during talk selection.
+      It is therefore important that you provide a detailed abstract.
+      This will help us to select in the selection process and increase the
+      chances of your talk being selected.
+    </p>
+    <label>Title
+      <input type="text" ng-model="proposal.title" />
+    </label>
+    <label>Abstract</label>
+    <textarea ui-tinymce="tinymceOptions" ng-model="proposal.abstract"></textarea>
+
+    <div class="text-center">
+      <button ng-click="submit()">Submit</button>
+    </div>
+  </form>
+</div>

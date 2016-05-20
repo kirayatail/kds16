@@ -15,7 +15,7 @@ app.directive('navBar', ['authService', function(Auth) {
       scope.isSignedIn = false;
 
       Auth.getUser().then(function(res) {
-        scope.isSignedIn = res.data._id ? true : false;
+        scope.isSignedIn = res._id ? true : false;
       }, function(err) {
         scope.isSignedIn = false;
       });
