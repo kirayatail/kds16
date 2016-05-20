@@ -7,16 +7,16 @@ app.directive('registeruser', ['$http', function($http) {
     link: function(scope) {
       scope.form = [
         {
-          label: "Email",
-          id: "email"
-        },
-        {
           label: "First name",
           id: "firstname"
         },
         {
           label: "Last name",
           id: "lastname"
+        },
+        {
+          label: "Email",
+          id: "email"
         },
         {
           label: "Phone number",

@@ -1,34 +1,50 @@
 <div class="registeruser">
-  <form>
+  <form class="form-group">
     <h3>Registration details</h3>
+    <div class="row">
+      <div class="col-xs-12 col-md-6" ng-repeat="item in form">
+        <label for="{{item.id}}">{{item.label}}
+        <input class="form-control col-xs-12" type="text" id="{{item.id}}", ng-model="user[item.id]" />
+        </label>
+      </div>
+    
+    
+      <div class="col-xs-12 separation-line"></div>
+    
+      <label class="col-xs-12" for="dinner">
+        <input type="checkbox" id="dinner" value="true" ng-model="user.dinner" />
+  Will attend the dinner
+      </label>
+      <label class="col-xs-12" for="newsletter">
+        <input type="checkbox" id="newsletter" value="true" ng-model="user.newsletter" />
+        I want to subscribe to the newsletter
+      </label>
+      
+      <div class="col-xs-12 separation-line"></div>
+    </div>
+    <div class="row">      
+      <h3 class="col-xs-12">Additional information for statistical purposes</h3>
+      <div class="additional-information">
+      <label class="group-header">What role(s) do you have?</label>
+      <label class="checkbox" ng-repeat="(k,v) in roles">
+        <input type="checkbox" value="true", ng-model="roles[k]" />
+        {{k}}
+      </label>
+      </div>
+      <label class="col-xs-12" for="age">Age
+        <input class="form-control" type="text" ng-model="user.age" />
+      </label>
+      <div class="gender-form">
+        <label class="group-header">Gender</label>
+        <label ng-repeat="g in gender">
+          <input type="radio" ng-model="user.gender" value="{{g}}" />
+          {{g}}
+        </label>
+      </div>
 
-    <label ng-repeat="item in form" for="{{item.id}}">{{item.label}}
-     <input type="text" id="{{item.id}}", ng-model="user[item.id]" />
-    </label>
-    <label for="dinner">
-      <input type="checkbox" id="dinner" value="true" ng-model="user.dinner" />
-      Will attend the dinner
-    </label>
-    <label for="newsletter">
-      <input type="checkbox" id="newsletter" value="true" ng-model="user.newsletter" />
-      I want to subscribe to the newsletter
-    </label>
-    <h3>Additional information for statistical purposes</h3>
-    <label class="group-header">What role(s) do you have?</label>
-    <label ng-repeat="(k,v) in roles">
-      <input type="checkbox" value="true", ng-model="roles[k]" />
-      {{k}}
-    </label>
-    <label for="age">Age
-      <input type="text" ng-model="user.age" />
-    </label>
-    <label class="group-header">Gender</label>
-    <label ng-repeat="g in gender">
-      <input type="radio" ng-model="user.gender" value="{{g}}" />
-      {{g}}
-    </label>
-
-    <button ng-click="submit()">Submit</button>
-
+      <div class="col-xs-12 separation-line"></div>
+      
+      <button class="submit-button xs-col-12" ng-click="submit()">Submit</button>
+    </div>
   </form>
 </div>

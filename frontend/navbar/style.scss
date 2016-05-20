@@ -1,3 +1,19 @@
-.navbar {
+.navbar-top {
     align-content: right;
+    background-color: #249B87;
+    opacity: 0.5;
+    padding-top: 10px;
+}
+.navbar-submit {
+    list-style: none;
+    padding-left: 50%;
+    background-color: #249B87;
+    
+    a {
+        color: white;
+        text-decoration: underline;
+        &:hover {
+            text-decoration: none;
+        }
+    }
 }
