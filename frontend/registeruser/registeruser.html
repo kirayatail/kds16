@@ -1,0 +1,34 @@
+<div class="registeruser">
+  <form>
+    <h3>Registration details</h3>
+
+    <label ng-repeat="item in form" for="{{item.id}}">{{item.label}}
+     <input type="text" id="{{item.id}}", ng-model="user[item.id]" />
+    </label>
+    <label for="dinner">
+      <input type="checkbox" id="dinner" value="true" ng-model="user.dinner" />
+      Will attend the dinner
+    </label>
+    <label for="newsletter">
+      <input type="checkbox" id="newsletter" value="true" ng-model="user.newsletter" />
+      I want to subscribe to the newsletter
+    </label>
+    <h3>Additional information for statistical purposes</h3>
+    <label class="group-header">What role(s) do you have?</label>
+    <label ng-repeat="(k,v) in roles">
+      <input type="checkbox" value="true", ng-model="roles[k]" />
+      {{k}}
+    </label>
+    <label for="age">Age
+      <input type="text" ng-model="user.age" />
+    </label>
+    <label class="group-header">Gender</label>
+    <label ng-repeat="g in gender">
+      <input type="radio" ng-model="user.gender" value="{{g}}" />
+      {{g}}
+    </label>
+
+    <button ng-click="submit()">Submit</button>
+
+  </form>
+</div>
