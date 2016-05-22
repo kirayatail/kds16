@@ -19,7 +19,20 @@
         <input type="checkbox" id="newsletter" value="true" ng-model="user.newsletter" />
         I want to subscribe to the newsletter
       </label>
-
+      <div class="col-xs-12 col-md-6">
+        <label for="requiresHotell">
+          <input type="checkbox" id="requiresHotell" value="true" ng-model="user.requiresHotell" />
+          I require a hotell room
+        </label>
+        <label for="canShareRoom">
+          <input type="checkbox" id="canShareRoom" value="true" ng-model="user.canShareRoom" />
+          I can share a hotell room
+        </label>
+        <label for="canShareRoomWith">
+          I prefer to share room with
+          <input type="text" id="canShareRoomWith" ng-model="user.canShareRoomWith" />
+        </label>
+      </div>
       <div class="col-xs-12 separation-line"></div>
     </div>
     <div class="row">
