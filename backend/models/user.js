@@ -10,7 +10,7 @@ var UserSchema = new Schema({
   lastname: String,
   attendingDinner: Boolean,
   newsletter: Boolean,
-  requiresHotell: Boolean,
+  requiresHotel: Boolean,
   canShareRoom: Boolean,
   canShareRoomWith: String,
   roles: [String],
