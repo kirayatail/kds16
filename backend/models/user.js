@@ -4,6 +4,8 @@ var mongoose = require('mongoose'),
 var UserSchema = new Schema({
   email: {type: String, unique: true, required: true, dropDups: true},
   company: String,
+  country: String,
+  city: String,
   phone: String,
   foodreqs: String,
   firstname: String,

@@ -61,6 +61,14 @@ app.directive('registeruser', ['$http', function($http) {
           id: "invoice"
         },
         {
+          label: "Country",
+          id:"country"
+        },
+        {
+          label: "City",
+          id:"city"
+        },
+        {
           label:"Food allergies or requirements",
           id: "foodreqs"
         }
