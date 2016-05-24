@@ -8,7 +8,7 @@
 ## Get your own file for env-vars (`.env`), Run with Heroku DB/services
 * Install Heroku toolbelt
 * Set up git remote to Heroku - run `git remote add herkou https://git.heroku.com/kds16.git`
-* Run `heroku config:list -s > .env`
+* Run `heroku config -s > .env`
 * Modify the file to match your computer (change URL to http://localhost:<port>)
 
 ## Setup to run with local DB (optional)
