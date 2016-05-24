@@ -19,7 +19,7 @@ var requestEmail = function(req, res) {
         user = u;
       }
 
-      user.signinTokenExpire = Date.now() + 900000;
+      user.signinTokenExpire = Date.now() + 24*3600*1000;
 
       crypto.randomBytes(24, (ex, buf) => {
         user.signinToken = buf.toString('hex');
