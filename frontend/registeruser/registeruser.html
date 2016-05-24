@@ -4,7 +4,8 @@
     <div class="row">
       <div class="col-xs-12 col-md-6" ng-repeat="item in form">
         <label for="{{item.id}}">{{item.label}}
-        <input class="form-control col-xs-12" type="text" id="{{item.id}}", ng-model="user[item.id]" />
+        <input ng-if="item.id !== 'company'" class="form-control col-xs-12" type="text" id="{{item.id}}", ng-model="user[item.id]" />
+        <input ng-if="item.id === 'company'" auto-complete ac-items="$parent.companyNames" class="form-control col-xs-12" type="text" id="{{item.id}}", ng-model="user[item.id]" />
         </label>
       </div>
 
