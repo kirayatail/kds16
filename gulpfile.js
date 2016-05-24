@@ -1,6 +1,7 @@
 'use strict';
 
 var gulp = require('gulp');
+var filter = require('gulp-filter');
 var sass = require('gulp-sass');
 var concat = require('gulp-concat');
 var sourcemaps = require('gulp-sourcemaps');
@@ -13,7 +14,11 @@ gulp.task('deps', function() {
   var tinymce = gulp.src('./node_modules/angular-ui-tinymce/dist/**')
     .pipe(gulp.dest('./frontend/lib/tinymce'));
 
-  return merge(sweetalert, tinymce);
+  var customSelect = gulp.src('./node_modules/js-custom-select/**')
+    .pipe(filter(['**/js/*.js', '**/css/*.css']))
+    .pipe(gulp.dest('./frontend/lib/js-custom-select'));
+
+  return merge(sweetalert, tinymce, customSelect);
 });
 
 gulp.task('sass', function () {

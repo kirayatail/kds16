@@ -2,7 +2,8 @@
 
 var app = angular.module('knowitdevsummit', [
   'ngRoute',
-  'ui.tinymce'
+  'ui.tinymce',
+  'AxelSoft'
 ]);
 
 app.config(['$routeProvider', function($routeProvider) {
