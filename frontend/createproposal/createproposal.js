@@ -3,7 +3,12 @@ var app = angular.module('knowitdevsummit');
 app.directive('createProposal', ['$http', function($http){
   return {
     templateUrl:'createproposal/createproposal.html',
+    scope: {
+      proposal: '=',
+      hideSubmit: '='
+    },
     link: function(scope) {
+
       scope.showForm = false;
       scope.wait = false;
 

@@ -45,28 +45,24 @@ app.directive('registeruser', ['$http', function($http) {
           id: "lastname"
         },
         {
-          label: "Email",
-          id: "email"
-        },
-        {
-          label: "Phone number",
-          id: "phone"
-        },
-        {
-          label: "Knowit company",
-          id: "company"
-        },
-        {
-          label: "Invoice identifier",
-          id: "invoice"
-        },
-        {
           label: "Country",
           id:"country"
         },
         {
           label: "City",
           id:"city"
+        },
+        {
+          label: "Invoice identifier",
+          id: "invoice"
+        },
+        {
+          label: "Knowit company",
+          id: "company"
+        },
+        {
+          label: "Phone number",
+          id: "phone"
         },
         {
           label:"Food allergies or requirements",
@@ -96,6 +92,7 @@ app.directive('registeruser', ['$http', function($http) {
       ];
 
       scope.user = {};
+      scope.proposal = {};
 
       scope.submit = function() {
         scope.wait = true;
@@ -112,7 +109,7 @@ app.directive('registeruser', ['$http', function($http) {
           swal({
             type: "success",
             title: "Registered",
-            text: "Successfully registered with email address "+scope.user.email
+            text: "Successfully registered with email address "+scope.user.email+".\n Please check your email and click the link to confirm"
           });
           scope.user = {};
           scope.roles =

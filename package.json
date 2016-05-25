@@ -22,7 +22,7 @@
     "gulp-sass": "^2.3.1",
     "gulp-sourcemaps": "^1.6.0",
     "helmet": "^2.0.0",
-    "js-custom-select": "git+https://github.com/sathishatnet/js-custom-select.git",
+    "js-custom-select": "git+https://github.com/sathishatnet/js-custom-select.git#163b0b7b8d07010fe3ab3a4267ed27269508d7b5",
     "lodash": "^4.12.0",
     "mailgun": "^0.5.0",
     "merge-stream": "^1.0.0",

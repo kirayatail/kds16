@@ -1,6 +1,7 @@
 var mongoose = require('mongoose');
 var authCtrl = require('./auth.js');
 var Users = mongoose.model('Users');
+var Talk = mongoose.model('Talks');
 
 module.exports = {
   Create: function(req, res) {
@@ -15,8 +16,23 @@ module.exports = {
         console.log(err);
         return res.status(400).json({message: err.message});
       }
+      var p = req.body.proposal;
 
-      return authCtrl.RequestEmail(req, res);
+      if(p && p.title && p.abstract) {
+        var talk = new Talk({
+          duration: p.duration,
+          language: p.language,
+          title: p.title,
+          abstract: p.abstract,
+          status: 'pending',
+          author: user._id
+        });
+        talk.save(function(err) {
+          return authCtrl.RequestEmail(req, res);
+        });
+      } else {
+        return authCtrl.RequestEmail(req, res);
+      }
     });
   },
 

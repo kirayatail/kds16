@@ -1,8 +1,4 @@
-<div ng-if="!showForm">
-  <button ng-click="$parent.showForm = true">Submit a talk...</button>
-</div>
-
-<div class="createproposal" ng-if="showForm">
+<div class="createproposal">
   <h2>Submit a talk</h2>
   <form>
     <label>Talk length
@@ -32,7 +28,7 @@
     <label>Abstract</label>
     <textarea ui-tinymce="tinymceOptions" ng-model="proposal.abstract"></textarea>
 
-    <div class="text-center">
+    <div class="text-center" ng-if="!hideSubmit">
       <button class="submit-button" ng-click="submit()" ng-disabled="wait">Submit<span ng-if="wait">ting...</span></button>
     </div>
   </form>
