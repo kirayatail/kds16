@@ -111,6 +111,7 @@ app.directive('registeruser', ['$http', function($http) {
             title: "Registered",
             text: "Successfully registered with email address "+scope.user.email+".\n Please check your email and click the link to confirm"
           });
+
           scope.user = {};
           scope.roles =
             {
@@ -136,6 +137,20 @@ app.directive('registeruser', ['$http', function($http) {
           });
           scope.wait = false;
         });
+
+        webhookUri = "https://hooks.slack.com/services/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";
+        emoj = ":robot_face:";
+        webhookUri = "https://hooks.slack.com/services/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";
+        var parameter = JSON.stringify({text: scope.user, username: "kds-bot", icon_emoji: emoj});
+
+        var req = {
+         method: 'POST',
+         url: webhookUri,
+         headers: { 'Content-Type': 'application/json' },
+         data: parameter
+        }
+
+        $http(req);
       }
     }
   }
