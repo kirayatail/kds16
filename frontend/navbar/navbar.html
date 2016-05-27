@@ -1,6 +1,8 @@
 <div class="navbar-top col-xs-12">
   <ul>
-    <li class="navbar-submit"ng-if="isSignedIn"><a href="/api/auth/signout">Sign out</a></li>
+    <li><a href="/#/">Start</a></li>
+    <li><a href="/#/talks">Talks</a></li>
+    <li ng-if="isSignedIn"><a href="/profile">My profile</a></li>
     <li class="navbar-submit"ng-if="!isSignedIn"><input type="text" placeholder="email" ng-model="data.email" /></li>
     <li class="navbar-submit"ng-if="!isSignedIn"><a ng-click="signIn();">Send access token</a></li>
   </ul>

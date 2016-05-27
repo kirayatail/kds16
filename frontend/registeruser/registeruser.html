@@ -19,66 +19,7 @@
       </div>
     </div>
     <div ng-if="showRegistration">
-      <h3>Attendance registration</h3>
-      <div class="row">
-        <div class="col-xs-12 col-md-6" ng-repeat="item in form">
-          <label for="{{item.id}}">{{item.label}}
-            <input ng-if="item.id !== 'company'" class="form-control col-xs-12" type="text" id="{{item.id}}", ng-model="user[item.id]" />
-            <div class="company-selector" ng-if="item.id === 'company'" custom-select="c for c in companyNames | filter: $searchTerm" ng-model="user.company"></div>
-          </label>
-        </div>
-
-
-        <div class="col-xs-12 separation-line"></div>
-
-        <label class="col-xs-12" for="dinner">
-          <input type="checkbox" id="dinner" value="true" ng-model="user.dinner" />
-          Will attend the dinner
-        </label>
-        <label class="col-xs-12" for="newsletter">
-          <input type="checkbox" id="newsletter" value="true" ng-model="user.newsletter" />
-          I want to subscribe to the newsletter
-        </label>
-        <div class="col-xs-12 col-md-6">
-          <label for="requiresHotell">
-            <input type="checkbox" id="requiresHotel" value="true" ng-model="user.requiresHotel" />
-            I require a hotel room
-          </label>
-          <label for="canShareRoom" ng-if="user.requiresHotel">
-            <input type="checkbox" id="canShareRoom" value="true" ng-model="user.canShareRoom" />
-            I can share a hotel room
-          </label>
-          <label for="canShareRoomWith" ng-if="user.requiresHotel && user.canShareRoom">
-            I prefer to share room with
-            <input type="text" id="canShareRoomWith" ng-model="user.canShareRoomWith" />
-          </label>
-        </div>
-        <div class="col-xs-12 separation-line"></div>
-      </div>
-      <div class="row">
-        <h3 class="col-xs-12">Additional information for statistical purposes</h3>
-      </div>
-      <div class="row">
-        <div class="additional-information col-xs-12 col-sm-6">
-          <label class="group-header">What role(s) do you have?</label>
-          <label class="checkbox" ng-repeat="(k,v) in roles">
-            <input type="checkbox" value="true", ng-model="roles[k]" />
-            {{k}}
-          </label>
-        </div>
-        <div class="col-xs-12 col-sm-6">
-          <label class="col-xs-12" for="age">Age
-            <input class="form-control" type="text" ng-model="user.age" />
-          </label>
-          <div class="gender-form">
-            <label class="group-header">Gender</label>
-            <label ng-repeat="g in gender">
-              <input type="radio" ng-model="user.gender" value="{{g}}" />
-              {{g}}
-            </label>
-          </div>
-        </div>
-      </div>
+      <userform user="user"></userform>
     </div>
     <div ng-if="showProposal">
       <create-proposal proposal="user.proposal" hide-submit="true"></create-proposal>
