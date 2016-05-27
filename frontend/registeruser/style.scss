@@ -16,14 +16,10 @@
 .submit-button {
     font-size: 1.5em;
     color: white;
-    text-decoration: underline;
     font-family: Georgia, 'Times New Roman', Times, serif;
-    border: none;
+    border: 0px;
     background-color: #249B87;
-    min-width: 20%;
-    min-height: 50px;
-    max-width: 100px;
-    margin: 1em 1em;
+    margin-bottom: 10px;
 }
 
 label {
