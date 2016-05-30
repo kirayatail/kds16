@@ -9,9 +9,11 @@ app.directive('registeruser', ['$http', function($http) {
 
       scope.wait = false;
 
-
       scope.user = {};
       scope.proposal = {};
+
+      scope.showProposal = true;
+      scope.showRegistration = false;
 
       scope.submit = function() {
         scope.wait = true;
