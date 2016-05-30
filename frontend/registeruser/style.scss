@@ -1,18 +1,20 @@
 
+userform {
+  .separation-line {
+      min-height: 2px;
+      height: 2px;
+      background-color: black;
+      opacity: 0.5;
+      margin-top: 25px;
+      margin-bottom: 25px;
+      width: 90%;
+  }
+}
 .additional-information {
     padding-left: 25px;
     margin-left: 25px;
 }
 
-.separation-line {
-    min-height: 2px;
-    height: 2px;
-    background-color: black;
-    opacity: 0.5;
-    margin-top: 25px;
-    margin-bottom: 25px;
-    width: 90%;
-}
 .submit-button {
     font-size: 1.5em;
     color: white;

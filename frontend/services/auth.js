@@ -1,6 +1,6 @@
 var app = angular.module('knowitdevsummit');
 
-app.service('authService', ['$http', '$q', function($http, $q) {
+app.service('authService', ['$http', '$q', '$location', function($http, $q, $location) {
   var user = null;
 
   return {
@@ -22,9 +22,22 @@ app.service('authService', ['$http', '$q', function($http, $q) {
     signinEmail: function(email) {
       return $http.post('/api/auth/email/request', {"email": email });
     },
-    logout: function() {
+    update: function(u) {
+      var def = $q.defer();
+      $http.put('/api/users/'+u._id, u).then(
+        function(succ) {
+          user = succ.data;
+          def.resolve(user);
+        },
+        function(err) {
+          def.reject(err);
+        }
+      );
+      return def.promise;
+    },
+    signout: function() {
       user = null;
-      return $http.get('/api/auth/signout');
+      $location.url('/api/auth/signout');
     }
   };
 }]);

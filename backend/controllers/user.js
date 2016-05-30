@@ -1,38 +1,33 @@
 var mongoose = require('mongoose');
+var _ = require('lodash');
 var authCtrl = require('./auth.js');
 var Users = mongoose.model('Users');
 var Talk = mongoose.model('Talks');
 
 module.exports = {
-  Create: function(req, res) {
+  Update: function(req,res) {
     var userData = req.body;
+    console.log("Running update with id: "+req.params.uid+"\n"+
+    "User object ID: "+ userData._id+"\n"+
+    "Signed in user ID: "+ req.user._id);
+    console.log(typeof userData._id);
+    console.log(typeof req.user._id);
+
+    if(userData._id !== req.user._id.toString()) {
+      return res.status(403).json({message: 'Modifying another user not allowed'});
+    }
 
     delete userData.admin;
     delete userData.signinToken;
     delete userData.signinTokenExpire;
+    delete userData.email;
+    delete userData._v;
+    delete userData._id;
 
-    Users.create(userData, function(err, user) {
-      if(err) {
-        console.log(err);
-        return res.status(400).json({message: err.message});
-      }
-      var p = req.body.proposal;
-
-      if(p && p.title && p.abstract) {
-        var talk = new Talk({
-          duration: p.duration,
-          language: p.language,
-          title: p.title,
-          abstract: p.abstract,
-          status: 'pending',
-          author: user._id
-        });
-        talk.save(function(err) {
-          return authCtrl.RequestEmail(req, res);
-        });
-      } else {
-        return authCtrl.RequestEmail(req, res);
-      }
+    Users.update({_id: req.user._id}, {$set: userData}, function(err, user) {
+      delete user.signinToken;
+      delete user.signinTokenExpire;
+      return res.json(user);
     });
   },
 

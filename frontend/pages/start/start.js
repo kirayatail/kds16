@@ -1,6 +1,6 @@
 var app = angular.module('knowitdevsummit');
 
-app.controller('StartController', ['$scope', 'authService', function($scope, Auth) {
+app.controller('StartController', ['$scope', '$location', 'authService', function($scope, $location, Auth) {
   $scope.isSignedIn = false;
 
   Auth.getUser().then(function(res) {
@@ -8,4 +8,9 @@ app.controller('StartController', ['$scope', 'authService', function($scope, Aut
   }, function(err) {
     $scope.isSignedIn = false;
   });
+
+  $scope.goto = function(path) {
+    $location.url(path)
+  };
+  
 }]);

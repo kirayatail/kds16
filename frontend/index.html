@@ -48,10 +48,14 @@
     <!-- Controllers -->
     <script type="text/javascript" src="pages/start/start.js"></script>
     <script type="text/javascript" src="pages/talks/talks.js"></script>
+    <script type="text/javascript" src="pages/profile/profile.js"></script>
 
 </head>
 <body ng-app="knowitdevsummit" class="body-background">
   <nav-bar></nav-bar>
-  <div ng-view></div>
+  <div class="row">
+    <div class="rootcontainer col-xs-12 col-md-10 col-md-offset-1" ng-view>
+    </div>
+  </div>
 </body>
 </html>

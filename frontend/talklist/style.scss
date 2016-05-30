@@ -1,19 +1,20 @@
 .talk-category-container {
     margin: 0;
     padding: 0;
+
+    .separation-line {
+        min-height: 2px;
+        height: 2px;
+        background-color: #666;
+        margin-top: 0px;
+        margin-bottom: 10px;
+    }
 }
 .category-title {
     font-family: Helvetica, Arial, sans-serif;
     font-weight: 100;
     padding-left: 8%;
     padding-bottom: 0px;
-    }
-    .separation-line {
-    min-height: 2px;
-    height: 2px;
-    background-color: #666;
-    margin-top: 0px;
-    margin-bottom: 10px;
 }
 .talk-area {
     background-color: white;

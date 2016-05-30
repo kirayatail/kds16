@@ -14,7 +14,7 @@ var requestEmail = function(req, res) {
         return res.status(500).send();
       }
       if(!u) {
-        return res.json({exists: false, message:'Email not registered'});
+        user = new User({"email": req.body.email});
       } else {
         user = u;
       }

@@ -1,11 +1,8 @@
-<div class="row">
-    <div class="rootcontainer col-xs-12 col-md-10 col-md-offset-1">
-        <h1>Knowit Developer Summit</h1>
-        <h2>Stockholm 21-22 October 2016</h2>
-        <p>Knowit Developer Summit (KDS) is Knowit's annual company-wide software developer conference. KDS is a conference By Developers (@knowit) For Developers (@knowit).</p>
-        <registeruser ng-if="!isSignedIn"></registeruser>
-
-        <!-- This space is for static info about the conference -->
-        <create-proposal ng-if="isSignedIn"></create-proposal>
-    </div>
+<h1>Knowit Developer Summit</h1>
+<h2>Stockholm 21-22 October 2016</h2>
+<p>Knowit Developer Summit (KDS) is Knowit's annual company-wide software developer conference. KDS is a conference By Developers (@knowit) For Developers (@knowit).</p>
+<registeruser ng-if="!isSignedIn"></registeruser>
+<div ng-if="isSignedIn">
+  <button ng-click="goto('/profile')">Show and update my profile</button>
+  <button ng-click="goto('/talks')">Propose a talk</button>
 </div>

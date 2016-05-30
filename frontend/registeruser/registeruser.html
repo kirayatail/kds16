@@ -1,7 +1,7 @@
 <div class="registeruser">
   <form class="form-group">
     <div class="row">
-      <h2 class="col-xs-12">Register a proposal</h2>
+      <h2 class="col-xs-12">Register &amp; sign in</h2>
     </div>
     <div class="row" style="display:flex; align-items: flex-end;">
       <div class="col-xs-12 col-md-6">
@@ -10,27 +10,8 @@
         </label>
       </div>
       <div class="col-xs-12 col-md-6">
-        <button class="secondary-button" ng-if="!showRegistration" ng-click="$parent.showRegistration = true">
-          Add registration info
-        </button>
-        <button class="secondary-button" ng-if="!showProposal" ng-click="$parent.showProposal = true">
-          Propose a talk
-        </button>
+        <button class="submit-button" ng-click="submit()" ng-disabled="wait">Submit<span ng-if="wait">ting...</span></button>
       </div>
     </div>
-    <div ng-if="showRegistration">
-      <userform user="user"></userform>
-    </div>
-    <div ng-if="showProposal">
-      <create-proposal proposal="user.proposal" hide-submit="true"></create-proposal>
-    </div>
-    <div class="row">
-      <div class="col-xs-1 col-sm-4"></div>
-      <div class="col-xs-10 col-sm-4 text-center space">
-        <button class="submit-button col-xs-12" ng-click="submit()" ng-disabled="wait">Submit<span ng-if="wait">ting...</span></button>
-      </div>
-      <div class="col-xs-1 col-sm-4"></div>
-    </div>
-      <div class="col-xs-12 separation-line"></div>
   </form>
 </div>
