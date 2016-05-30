@@ -1,7 +1,8 @@
 var talkCtrl = require('../controllers/talk');
 var authorize = require('../controllers/auth').Authorize;
+
 module.exports = function(app) {
   app.route('/api/talks')
     .post(authorize(), talkCtrl.Create)
-    //.get(talkCtrl.List);
+    .get(talkCtrl.List);
 }

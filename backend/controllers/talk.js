@@ -24,5 +24,21 @@ module.exports = {
 
       return res.json({saved: true, message:"Proposal saved"});
     })
+  },
+  List: function(req, res) {
+    var queries = [{"status": "approved"}];
+    var uid = null;
+    if(req.user) {
+      queries.push({"author": req.user._id});
+      uid = req.user._id;
+    }
+    Talk.find({$or: queries}, function(err, talks){
+      var result = {
+        approved: talks.filter(o => o.status === "approved"),
+        my: talks.filter(o => o.author === uid)
+      };
+
+      return res.json(result);
+    });
   }
 }
