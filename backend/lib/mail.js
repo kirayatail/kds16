@@ -13,7 +13,6 @@ var send = function(to, subject, content) {
         console.error("Postmark error: ", err.message);
         reject(err.message);
       } else {
-        console.log("Email sent: ", subject, ' - ', to);
         resolve(success.message);
       }
     });

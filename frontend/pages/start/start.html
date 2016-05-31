@@ -3,6 +3,7 @@
 <p>Knowit Developer Summit (KDS) is Knowit's annual company-wide software developer conference. KDS is a conference By Developers (@knowit) For Developers (@knowit).</p>
 <registeruser ng-if="!isSignedIn"></registeruser>
 <div ng-if="isSignedIn">
-  <button ng-click="goto('/profile')">Show and update my profile</button>
-  <button ng-click="goto('/talks')">Propose a talk</button>
+  <h2>Quick links</h2>
+  <button class="secondary-button" ng-click="goto('/profile')">Show and update my profile</button>
+  <button class="secondary-button" ng-click="goto('/talks')">Propose a talk</button>
 </div>

@@ -32,12 +32,11 @@ module.exports = {
       queries.push({"author": req.user._id});
       uid = req.user._id;
     }
-    Talk.find({$or: queries}, function(err, talks){
+    Talk.find({"$or": queries}).populate('author').exec(function(err, talks){
       var result = {
         approved: talks.filter(o => o.status === "approved"),
-        my: talks.filter(o => o.author === uid)
+        my: talks.filter(o => o.author._id.toString() === uid.toString())
       };
-
       return res.json(result);
     });
   }

@@ -1,22 +1,20 @@
 <div class="talk-category-container">
     <!-- accepted talks start here -->
-    <div class="talk-category">
-        <h1 class="category-title" data-toggle="collapse" href="#TALKCATEGORY">Talk category</h1>
+    <div class="talk-category" ng-repeat="(cat, ts) in talks" ng-if="ts.length > 0">
+        <h1 class="category-title" data-toggle="collapse" href="#{{cat}}">{{categories[cat]}}</h1>
         <div class="col-xs-1"></div>
         <div class="separation-line col-xs-10"></div>
         <div class="col-xs-1"></div>
         <div>
-            <div id="TALKCATEGORY" class="talk-collapsable collapse in">
+            <div id="{{cat}}" class="talk-collapsable collapse in">
                 <!-- talks begin here -->
-                <div class="talk-area col-xs-12">
-                    <div data-toggle="collapse" href="#TALK" class="talk-title-area col-xs-10">
-                        <h3 class="talk-title col-xs-10">Talk title</h3>
-                        <h4 class="talk-speaker col-xs-12">Speaker</h4>
-                        <h4 class="talk-slot col-xs-12">Where and when</h4>
+                <div class="talk-area col-xs-12" ng-repeat="talk in ts">
+                    <div data-toggle="collapse" href="#{{talk._id}}" class="talk-title-area col-xs-10">
+                        <h3 class="talk-title col-xs-10">{{talk.title}}</h3>
+                        <h4 class="talk-speaker col-xs-12">{{talk.author.firstname}} {{talk.author.lastname}}</h4>
                     </div>
                     <div class="talk-favourite col-xs-2"></div>
-                    <div id="TALK" class="talk-content col-xs-12">
-                        Content
+                    <div id="{{talk._id}}" class="talk-content col-xs-12" ng-bind-html="talk.abstract">
                     </div>
                 </div>
                 <!-- talks end here -->

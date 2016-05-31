@@ -2,6 +2,7 @@
 
 var app = angular.module('knowitdevsummit', [
   'ngRoute',
+  'ngSanitize',
   'ui.tinymce',
   'AxelSoft'
 ]);
