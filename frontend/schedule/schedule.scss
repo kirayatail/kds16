@@ -1,0 +1,103 @@
+.sub-menu {
+    list-style-type: none;
+    margin: 0px;
+    padding: 0px;
+li {
+        padding-left: 0px;
+        padding-right: 0px;
+    margin: 0px;
+    padding: 0px;
+    background-color: orange;
+    border-style: solid;
+    border-color: red;
+    border-width: 0px 1px 0px 1px;
+}
+}
+.sub-menu-item {
+    display: block;
+    background-color: #69BFB3;
+    margin: 0px;
+    padding: 0px;
+    font-family: Helvetica, Arial, sans-serif;
+    color: white;
+    font-weight: 100;
+    text-align: center;
+    padding: 0px;
+    font-size: 22px;
+    border-style: solid;
+    border-color: white;
+    border-width: 0px 0px 0px 1px;
+}
+li a:hover {
+    color: black;
+    background-color: white;
+    }
+
+.slot-area {
+    padding: 0px;
+    margin: 0px;
+}
+.talk-area {
+    background-color: white;
+    margin-bottom: 20px;
+}
+.talk-title {
+    font-family: Helvetica, Arial, sans-serif;
+    color: #249B87;
+    font-weight: 100;
+    margin: 2px 0px 0px 15px;
+    padding: 0px;
+    font-size: 22px;
+}
+.talk-speaker {
+    font-family: Helvetica, Arial, sans-serif;
+    color: #666;
+    font-weight: 100;
+    margin: 0px 0px 2px 15px;
+    padding: 0px;
+    font-style: italic;
+}
+.talk-title-area {
+    margin: 0px;
+    padding: 0px;
+    display: block;
+    }
+.talk-favourite {
+  background-image: url("/assets/favourite_empty.svg");
+  background-repeat: no-repeat;
+  display: block;
+  padding-top: 15px;
+}
+.talk-favourite-active {
+  background-image: url("/assets/favourite_full.svg");
+  background-repeat: no-repeat;
+  display: block;
+  padding-top: 15px;
+}
+.talk-label {
+    background-color: #B9EBC0;
+}
+    
+.end-time {
+    font-family: Helvetica, Arial, sans-serif;
+    font-weight: 100;
+    margin: -5px 0px -2px 0px;
+    padding: 0px;
+    font-size: 22px;
+        text-align: right;
+    }
+    
+.start-time {
+    font-family: Helvetica, Arial, sans-serif;
+    font-weight: 100;
+    margin: -8px 0px -5px 0px;
+    padding: 0px;
+    font-size: 22px;
+    text-align: left;
+    }
+.slot-time {
+    text-align: center;
+    font-family: Helvetica, Arial, sans-serif;
+    font-weight: 100;
+    color: #666;
+}

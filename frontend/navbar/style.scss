@@ -1,17 +1,102 @@
-.navbar-top {
-    align-content: right;
-    background-color: rgba(36, 155, 135, 0.5);
-    padding-top: 10px;
-}
-.navbar-submit {
-    list-style: none;
-    padding-left: 50%;
+$primary: #239884;
+$secondary: #AEDCD6;
 
-    a {
-        color: white;
-        text-decoration: underline;
-        &:hover {
-            text-decoration: none;
+.navBar {
+    background-color: $primary;
+    min-width: 100%;
+}
+
+.nav-header {
+      color: white;
+      font-size: 1.5em;
+      font-family: Helvetica, Arial, sans-serif;
+      text-align: center;
+      padding: 5px 0px 5px 0px;
+}
+.nav-menu-seperator {
+    height: 2px;
+    justify-content: center;
+}
+
+nav {
+  ul {
+    margin: 0px;
+    display: flex;
+    list-style-type: none;
+    width: 100%;
+    -webkit-margin-before: 0px;
+    -webkit-margin-after: 0px;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+    -webkit-padding-start: 0px;
+    
+    .dropdown-menu {
+        padding: 0px;
+        margin: 0px;
+        border: 0px;
+        -webkit-box-shadow: 0;
+        box-shadow: 0;
+        .nav-dropdown-item {
+            height: 48px;
+            background-color: $secondary;
         }
     }
+    
+    a {
+      color: white;
+      display: block;
+      text-decoration: none;
+      font-size: 2em;
+      font-family: Helvetica, Arial, sans-serif;
+      font-weight: 100;
+      text-align: center;
+      padding: 5px 0px 5px 0px;
+      background-color: $secondary;
+
+      &:hover {
+          background-color: $primary;
+          color: white;
+          text-decoration: none;}
+    }
+  }
+  
+  li  {
+          flex-grow: 1;
+  }
+  
+  #menu-toggle {display: none;}
+  
+  .label-toggle {display: none;}
+  
+  .wrapper {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  @media screen and (max-width: 768px) {
+      .navBar {
+    background-color: $secondary;
+      }
+    ul {
+      display: block;
+      height: 0;
+      list-style-type: none;
+      text-align: center;
+      width: 100%;
+      visibility: hidden;
+    }
+    
+    li {
+      display: block;
+    }
+  
+    #menu-toggle:checked ~ ul {
+      opacity: 1;
+      height: 100%;
+      visibility: visible;
+    }
+    
+    .wrapper {display: block;}
+  }
 }

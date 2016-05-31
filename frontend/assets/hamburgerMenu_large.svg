@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="80px" height="80px" viewBox="0 0 80 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 3.8.2 (29753) - http://www.bohemiancoding.com/sketch -->
+    <title>hamburgerMenu_large</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="hamburgerMenu_large" fill="#FFFFFF">
+            <g id="hamburgerMenu" transform="translate(6.000000, 22.000000)">
+                <rect id="Rectangle-2" x="0.896551724" y="0.0689655172" width="66.2068966" height="8.27586207" rx="4.13793103"></rect>
+                <rect id="Rectangle-2" x="0.896551724" y="13.862069" width="66.2068966" height="8.27586207" rx="4.13793103"></rect>
+                <rect id="Rectangle-2" x="0.896551724" y="27.6551724" width="66.2068966" height="8.27586207" rx="4.13793103"></rect>
+            </g>
+        </g>
+    </g>
+</svg>
