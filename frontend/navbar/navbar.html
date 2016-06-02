@@ -1,7 +1,14 @@
-<div class="navbar-top col-xs-12">
+<nav class="navBar">
+  <input type="checkbox" id="menu-toggle">
+  <label class="visible-xs" for="menu-toggle"><div class="nav-header">Knowit development summit</div></label>
+  </input>
   <ul>
+    <li class="nav-menu-seperator visible-xs"></li>
     <li><a href="/#/">Start</a></li>
+    <li class="nav-menu-seperator visible-xs"></li>
     <li><a href="/#/talks">Talks</a></li>
-    <li ng-if="isSignedIn"><a href="/#/profile">My profile</a></li>
+    <li class="nav-menu-seperator visible-xs"></li>
+    <li ng-if="isSignedIn"><a href="/profile">My profile</a></li>
+    <li class="nav-menu-seperator visible-xs"></li>
   </ul>
-</div>
+</nav>
