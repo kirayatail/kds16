@@ -27,7 +27,7 @@ module.exports = {
   },
   List: function(req, res) {
     var queries = [{"status": "approved"}];
-    var uid = null;
+    var uid = '';
     if(req.user) {
       queries.push({"author": req.user._id});
       uid = req.user._id;
@@ -35,9 +35,41 @@ module.exports = {
     Talk.find({"$or": queries}).populate('author').exec(function(err, talks){
       var result = {
         approved: talks.filter(o => o.status === "approved"),
-        my: talks.filter(o => o.author._id.toString() === uid.toString())
+        my: talks.filter(o => uid && o.author && o.author._id.toString() === uid.toString())
       };
       return res.json(result);
     });
+  },
+  Update: function(req,res) {
+    var nt = req.body;
+
+    if(nt._id !== req.params.tid) {
+      return res.status(400).json({message: "Object identity missmatch"});
+    }
+
+    Talk.findOne({_id: nt._id}, function(err, talk) {
+      if(err) {
+        return res.status(500).send(err);
+      }
+
+      if(!talk) {
+        return res.status(404).send();
+      }
+
+      if(!req.user.admin && (req.user._id !== talk.author)) {
+        return res.status(403).json({message: "Not authorized to change this talk"});
+      }
+
+      // User only allowed to change status from approved to confirmed/cancelled
+      if(!req.user.admin && nt.status !== talk.status && (talk.status !== 'approved' || (nt.status !== 'confirmed' && nt.status !== 'cancelled'))) {
+        return res.status(403).json({message: "Not authorized to change status"});
+      }
+
+      delete nt.author;
+
+      talk.update({$set: nt}, function(err, talk) {
+        return res.json(talk);
+      });
+    })
   }
 }

@@ -9,7 +9,7 @@ var TalkSchema = new Schema({
   abstract: String,
   status: {
     type: String,
-    enum: ['pending', 'accepted', 'rejected', 'confirmed', 'declined']
+    enum: ['pending', 'approved', 'rejected', 'confirmed', 'cancelled']
   }
 });
 
