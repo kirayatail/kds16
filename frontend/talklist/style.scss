@@ -46,16 +46,29 @@
     margin: 0px;
     padding: 0px;
     display: block;
-    }
-.talk-favourite {
-  background-image: url("/assets/favourite_empty.svg");
-  background-repeat: no-repeat;
-  display: block;
-  padding-top: 15px;
 }
-.talk-favourite-active {
-  background-image: url("/assets/favourite_full.svg");
-  background-repeat: no-repeat;
-  display: block;
-  padding-top: 15px;
+.talk-favourite {
+    background-image: url("/assets/favourite_empty.svg");
+    background-repeat: no-repeat;
+    display: block;
+    padding-top: 15px;
+    height: 30px;
+
+    .active {
+        background-image: url("/assets/favourite_full.svg");
+    }
+}
+.talk-status {
+    .pending {
+        background-color: yellow;
+    }
+    .accepted {
+        background-color: turquoise;
+    }
+    .confirmed {
+        background-color: green;
+    }
+    .rejected {
+        background-color: red;
+    }
 }

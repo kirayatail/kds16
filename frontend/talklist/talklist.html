@@ -13,8 +13,13 @@
                         <h3 class="talk-title col-xs-10">{{talk.title}}</h3>
                         <h4 class="talk-speaker col-xs-12">{{talk.author.firstname}} {{talk.author.lastname}}</h4>
                     </div>
-                    <div class="talk-favourite col-xs-2"></div>
-                    <div id="{{talk._id}}" class="talk-content col-xs-12" ng-bind-html="talk.abstract">
+                    <!-- if normal user, show clickable favourite icon -->
+                    <div ng-if="!isOwnerOrAdmin" class="talk-favourite col-xs-2"></div>
+                    <!-- if owner of talk or admin, show status bar -->
+                    <div ng-if="isOwnerOrAdmin" class="talk-status col-xs-2">
+                        <!-- change CSS class and status text depending on status of talk -->
+                    </div>
+                        <div id="{{talk._id}}" class="talk-content col-xs-12" ng-bind-html="talk.abstract">
                     </div>
                 </div>
                 <!-- talks end here -->
